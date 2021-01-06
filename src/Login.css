@@ -1,0 +1,27 @@
+.login {
+  background-color: #f8f8f8;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+.login__div {
+  background-color: white;
+  padding: 100px;
+  text-align: center;
+  border-radius: 10px;
+}
+.login__div img {
+  margin-bottom: 25px;
+  height: 80px;
+  object-fit: contain;
+}
+.login__div .loginbtn {
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+}
+.login__div .loginbtn:hover {
+  background-color: #08ad48;
+  color: white;
+}

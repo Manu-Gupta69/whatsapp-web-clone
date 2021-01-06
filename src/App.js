@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import { Router, Route } from "react-router-dom";
+import history from "./history";
+import React, { useState } from "react";
+import Login from "./Login";
+import { useSelector } from "react-redux";
 function App() {
+  
+
+  const newuser = useSelector((state) => state.user.user);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {!newuser ? (
+        <Login />
+      ) : (
+        <div className="app__body">
+          <Router history={history}>
+            <Sidebar />
+            <Route path="/" exact>
+              <Chat />
+            </Route>
+            <Route path="/rooms/:roomid">
+              <Chat />
+            </Route>
+          </Router>
+        </div>
+      )}
     </div>
   );
 }
